@@ -1,0 +1,264 @@
+body {
+	color: #243f60;
+}
+
+p, div, li {
+	margin: 10pt 0;
+}
+
+p.indent {
+	margin-left: 5%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 10pt 0 0.0001pt;
+	border: none;
+	padding: 3pt;
+	text-transform: uppercase;
+}
+
+h2 {
+	background: #4F81BD;
+	color: white;
+	letter-spacing: .75pt;
+}
+
+h3 {
+	background: #DBE5F1;
+	letter-spacing: .75pt;
+}
+
+h4 {
+	color: #243F60;
+	letter-spacing: .75pt;
+}
+
+h3, h4, h5, h6 {
+	color: #365F91;
+	letter-spacing: .5pt;
+}
+
+header div {
+	margin: auto;
+	border: none;
+	padding: 5pt;
+	position: relative;
+	text-transform: uppercase;
+	background: #00529B;
+	color: white;
+	letter-spacing: .75pt;
+	display: grid;
+	justify-items: center;
+	align-content: center;
+	grid-template-columns: 42px auto;
+}
+
+header a {
+	margin: 0pt 10pt;
+	border: none;
+	padding: 3pt;
+	text-transform: uppercase;
+	font-size: 3em;
+	text-decoration: none;
+	color: white;
+}
+
+mark {
+	padding-left: 2pt;
+	margin-right: 2pt;
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+	font-weight: bold;
+	color: #bd0505;
+    text-transform: none;
+}
+
+code.userinput, code .userinput {
+	color: blue;
+    font-style: italic;
+}
+
+.comment {
+	color: green;
+}
+
+code.console {
+    color: black;
+}
+
+span.comment {
+	padding-left: 1em;
+}
+
+footer {
+    border-top: thin solid black;
+	padding-top: 6pt;
+	margin-top: 10pt;
+	padding-bottom: 10pt;
+	display: flex;
+    justify-content: space-between;
+}
+
+author, x-author {
+	text-align: left;
+}
+
+module, x-module {
+
+	text-align: center;
+}
+
+copyright, x-copyright {
+	text-align: right;
+}
+
+x-todo {
+	background: red;
+	font-weight: bolder;
+	color: white;
+	border: thick solid darkred;
+	padding: 5px; 
+}
+
+.info {
+	border-top: thin solid #4F81BD;
+	padding: 16pt;
+	border-bottom: thin solid #4F81BD;
+	font-weight: bold;
+}
+
+blockquote {
+	border-top: thin solid #4F81BD;
+    padding: 16pt;
+	border-bottom: thin solid #4F81BD;
+}
+
+.figures {
+	display: grid;
+	grid-template-columns: repeat(2,1fr);
+}
+
+.math {
+	font-style: italic;
+}
+
+.math sup{
+	font-style: normal;
+}
+
+.hint::before {
+	content: "Hint: ";
+	font-weight:bold;
+}
+
+figure {
+	text-align: center;
+	margin: 1em;
+	vertical-align: top;
+}
+
+figure img {
+	max-width: 100%; 
+	/*border: medium solid #243f60;*/
+}
+
+.table-border {
+    border-collapse: collapse;
+}
+
+.table-border td, .table-border th {
+    border:thin solid black; 
+    padding: 0px 10px;
+}
+
+.faq dt {
+	font-weight: bold;
+	margin: 1em auto 0.2em auto;
+}
+
+/* numbering from https://www.sqlpac.com/en/documents/html-css-auto-numbering-elements-counters.html */
+.numbered    { counter-reset: h2counter; }
+.numbered h2 { counter-reset: h3counter; }
+.numbered h3 { counter-reset: h4counter; }
+
+.numbered h2::before {
+    counter-increment: h2counter;
+    content: counter(h2counter) " ";
+}
+
+.numbered h3::before {
+    counter-increment: h3counter;
+    content: counter(h2counter) "." counter(h3counter) " ";
+}
+
+.numbered h4::before {
+    counter-increment: h4counter;
+    content: counter(h2counter) "." counter(h3counter) "." counter(h4counter) " ";
+}
+
+/* tutorial question numbering */
+body { 
+	counter-reset: question-counter; 
+}
+ol.questions>li { 
+	counter-increment: question-counter;
+}
+ol.questions>li::marker {
+	content: counter(question-counter) ". ";
+}
+
+/* tutorial question staff guidance */
+.staff-guidance {
+	padding: 0px 10px;
+	border: thin solid #8B1233;
+	background: #FEF4F7;
+	color: #450919;
+	display: block;
+}
+
+.uml-class-diagram {
+	border: thin solid black;
+	border-collapse: collapse;
+}
+
+.uml-class-diagram td, .uml-class-diagram th  {	
+	padding: 0 1ex;
+}
+
+
+.uml-class-diagram tbody tr:first-child {	
+	border-top: thin solid black;
+}
+
+.uml-class-diagram td:nth-child(2)::before {	
+	content: ": ";
+}
+
+.warning {
+	padding: 10px 10px;
+	border: thick solid #8B1233;
+	background: #FEF4F7;
+	color: #450919;
+	display: inline-block;
+	font-weight: bold;
+}
+
+@media print {
+    header a { font-size: 18pt; }
+	.staff-guidance { 
+		padding: 0px 10px;
+		border: thin solid #8B1233;
+	}
+	button, .banner, #banner { display: none; }
+    .break-before {page-break-before: always;}
+	h2 {
+		margin-top: 20pt;
+		color: #243f60;
+	}
+	h3 {
+		margin-top: 18pt;
+	}
+}
+
